@@ -12,7 +12,6 @@ public interface PostRepository extends JpaRepository<Post,Long> {
 
     Page<Post> findByUserId(Long userId, Pageable pageable);
 
-    @Query("SELECT p FROM Post p ORDER BY p.averageRating DESC")
-    Page<Post> findTopPosts(Pageable pageable);
-
+    @Query("SELECT p, AVG(r.rating) as avgRating FROM Post p LEFT JOIN p.reviews r GROUP BY p ORDER BY avgRating DESC")
+    Page<Object[]> findTopPosts(Pageable pageable);
 }

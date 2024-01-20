@@ -6,13 +6,12 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Table
-@Data
 @NoArgsConstructor
 @EqualsAndHashCode
+@Data
 public class Post implements Serializable {
 
 
